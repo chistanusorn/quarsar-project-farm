@@ -1,15 +1,31 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
-  </q-page>
+  <div class="htmlClass">
+    <h1>{{ title }}</h1>
+    <form>
+      <input type="text" id="firstName" v-model="firstName" />
+      <input type="text" id="secondName" v-model="secondName" />
+      <button @click="submitForm()" class="submitForm">Submit</button>
+  </form>
+  </div>
 </template>
 
-<script setup>
-defineOptions({
-  name: 'IndexPage'
-});
+<script>
+export default {
+  name: 'InputPage',
+  data() {
+    return {
+      title: 'FARM',
+      firstName: 'Knitanuson',
+      LastName: 'Mahawiratrakun',
+      number:'311',
+    }
+  },
+  methods: {
+    submitForm() {
+      this.$emit('submit form')
+    },
+  }
+}
 </script>
+
+<style scoped></style>
